@@ -41,11 +41,13 @@ public:
 	void createRoom();
 	bool join(std::string userIdConn);
 	std::vector<std::string> getListRoom();
+
+private:
 	void move(std::string str);
+	void draw(RenderWindow& window, Sprite* top);
 	std::string toChessNote(Vector2f p);
 	Vector2f toCoord(char a, char b);
 	void loadPosition();
-private:
 	int sendData(const void * data, int data_size);
 	int recvData(const void *data, int data_size);
 };
