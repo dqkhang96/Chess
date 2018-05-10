@@ -85,15 +85,6 @@ bool Player::inCheck()
     return check;
 }
 
-/*void Player::capture(Piece* aPiece)
-{
-    // unset the piece's location on the board
-    aPiece->setLocation(NULL);
-    
-    // put the piece into this player's set of captured pieces
-    _capturedPieces.insert(aPiece);
-}*/
-
 string Player::getName() const
 {
     return _name;
@@ -103,19 +94,6 @@ bool Player::isWhite() const
 {
     return _isWhite;
 }
-
-/*int Player::score() const
-{
-    int score = 0;
-    
-    // add up the points of all captured pieces
-    for (set<Piece*>::iterator itr = _capturedPieces.begin(); itr != _capturedPieces.end(); ++itr)
-    {
-        score += ((Piece*)*itr)->value();
-    }
-    
-    return score;
-}*/
 
 set<Piece*>* Player::myPieces() const
 {
