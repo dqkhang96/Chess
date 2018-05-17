@@ -19,31 +19,13 @@ class Game
 {
  public:
 	 Game();
-    /**
-     * Destructor
-     */
     ~Game();
-
-    /**
-     * Set up a new game of chess
-     *
-     */
     void initialize();
 
-    /**
-    * Get the player whose turn is next
-    *
-    * @return the player
-    */
+
     Player* getNextPlayer();
 	Player* currentPlayer();
 
-    /**
-    * Get the player who is the opponent of the given player
-    *
-    * @param player the player
-    * @return the opponent
-    */
     Player* opponentOf(Player& player);
 
  private:

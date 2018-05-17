@@ -149,7 +149,7 @@ void Game::initialize()
     whitePieces.insert(aKing);
     
     // create White player and hand them their pieces
-    player1 = new Player("White", true, *aKing, whitePieces,this);
+    //player1 = new Player("White", true, *aKing, whitePieces,this);
                      
     // create the black king
     aKing = new King(false);
@@ -159,7 +159,7 @@ void Game::initialize()
     blackPieces.insert(aKing);
     
     // create Black player and hand them their pieces
-    player2 = new Player("Black", false, *aKing, blackPieces,this);
+    //player2 = new Player("Black", false, *aKing, blackPieces,this);
     
     nextPlayer = player2;
 }
@@ -189,9 +189,3 @@ Player* Game::opponentOf(Player& player)
 
     return opponent;
 }
-
-/*Player* Game::player1 = NULL;
-Player* Game::player2 = NULL;
-Player* Game::nextPlayer = NULL;
-set<Piece*> Game::whitePieces;
-set<Piece*> Game::blackPieces;*/

@@ -14,19 +14,22 @@
 #define Y_MIN '1'
 #define Y_MAX '8'
 
-Player::Player(string name, bool isWhite, King& myKing, set<Piece*>& myPieces,Game* game) :
-_name(name), _isWhite(isWhite), _myPieces(myPieces), _myKing(myKing),_game(game)
+Player::Player(string name,bool isWhite, King& myKing, set<Piece*>* myPieces) :
+_name(name), _isWhite(isWhite), _myPieces(myPieces), _myKing(myKing)
 {
 }
 
 Player::~Player()
 {
+	if (_myPieces != NULL)
+		delete _myPieces;
 }
 
+void Player::setOpponent(Player* opponent) {
+	_opponent = opponent;
+}
 int Player::makeMove(string fromSquare,string toSquare)
 {
-    string badInput; // string for throwing away invalid input
-
     int fromX;
     int fromY;
     int toX;
@@ -69,8 +72,8 @@ bool Player::inCheck()
     bool check = false;
     
     // for each piece in the opponent's set of pieces
-    for (set<Piece*>::iterator itr = myGame()->opponentOf(*this)->myPieces()->begin(); 
-         itr != myGame()->opponentOf(*this)->myPieces()->end(); ++itr)
+    for (set<Piece*>::iterator itr = opponent()->myPieces()->begin(); 
+         itr != opponent()->myPieces()->end(); ++itr)
     {
         // if a piece that is still located on the board
         // can move to my king's square
@@ -97,13 +100,13 @@ bool Player::isWhite() const
 
 set<Piece*>* Player::myPieces() const
 {
-    return &_myPieces;
+    return  _myPieces;
 }
 
 King* Player::myKing() const
 {
     return &_myKing;
 }
-Game* Player::myGame() const {
-	return _game;
+Player* Player::opponent() const {
+	return _opponent;
 }
