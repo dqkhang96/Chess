@@ -9,7 +9,7 @@
 #include "queen.h"
 #include "board.h"
 
-Pawn::Pawn(bool isWhite) : RestrictedPiece(isWhite), _delegate(NULL)
+Pawn::Pawn(bool isWhite,Board* board) : RestrictedPiece(isWhite,board), _delegate(NULL)
 {
 }
 
@@ -22,11 +22,6 @@ Pawn::~Pawn()
 void Pawn::setLocation(Square* location)
 {
     Piece::setLocation(location);
-}
-
-int Pawn::value() const
-{
-    return 1;
 }
 
 int Pawn::moveTo(Player& byPlayer, Square& to)
@@ -62,9 +57,9 @@ int Pawn::moveTo(Player& byPlayer, Square& to)
         // a queen
         if(!valid)
         {
-            if(Board::getBoard()->isEndRow(*location()))
+            if(_board->isEndRow(*location()))
             {
-                _delegate = new Queen(isWhite());
+                _delegate = new Queen(isWhite(),_board);
                 _delegate->setLocation(location());
             }
         }
@@ -103,7 +98,7 @@ bool Pawn::canMoveTo(Square& location) const
         // valid move if !moved and moving 2 squares forward
         // to unoccupied square along a clear vertical
         else if(!hasMoved() && translationY == 2 && translationX == 0 &&
-                Board::getBoard()->isClearVertical(*(this->location()), location))
+                _board->isClearVertical(*(this->location()), location))
         {
             validMove = true;
         }
@@ -119,15 +114,5 @@ bool Pawn::canMoveTo(Square& location) const
     return validMove;
 }
 
-void Pawn::display() const
-{
-    if(_delegate)
-    {
-        _delegate->display();
-    }
-    else
-    {
-        cout << _color + "P";
-    }
-}
+
 

@@ -11,7 +11,6 @@
 #include <set>
 #include "piece.h"
 #include "king.h"
-#include "game.h"
 
 using namespace std;
 
@@ -19,7 +18,7 @@ class Player
 {
 public:
     
-    Player(string name, bool isWhite, King& myKing, set<Piece*>* myPieces);
+    Player(string name, bool isWhite, King& myKing, set<Piece*>* myPieces,bool isPlay,Board* _board);
 	void setOpponent(Player* opponent);
     ~Player();
     
@@ -39,6 +38,9 @@ public:
     
     King* myKing() const;
 	Player* opponent()const;
+
+	void play();
+	void notPlay();
     
     
 private:
@@ -50,6 +52,8 @@ private:
     //set<Piece*> _capturedPieces;
     King& _myKing;
 	Player* _opponent;
+	bool _isPlay;
+	Board* _board;
     
 }; // Player
 

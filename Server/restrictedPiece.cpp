@@ -7,7 +7,7 @@
 #include "player.h"
 #include "restrictedPiece.h"
 
-RestrictedPiece::RestrictedPiece(bool isWhite) : Piece(isWhite)
+RestrictedPiece::RestrictedPiece(bool isWhite,Board *board) : Piece(isWhite,board)
 {
     _moved = false;
 }

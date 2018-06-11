@@ -6,7 +6,7 @@
 #include <sstream>
 #include "knight.h"
 
-Knight::Knight(bool isWhite) : Piece(isWhite)
+Knight::Knight(bool isWhite,Board* board) : Piece(isWhite,board)
 {
 }
 
@@ -14,10 +14,6 @@ Knight::~Knight()
 {
 }
 
-int Knight::value() const
-{
-    return 3;
-}
 
 bool Knight::canMoveTo(Square& location) const
 {
@@ -42,10 +38,6 @@ bool Knight::canMoveTo(Square& location) const
     return validMove;
 }
 
-void Knight::display() const
-{
-    cout << _color + "N";
-}
 
 
 

@@ -20,23 +20,16 @@ class Knight : public Piece
     
     /**
     * Creates a Knight
-    *
-    * @param color the color of the piece
+	* with color the color of the piece
     */
-    Knight(bool isWhite);
+    Knight(bool isWhite,Board* board);
     
     /**
      * Default destructor
      */
     ~Knight();
 
-    /**
-    * Get the point value of the piece
-    *
-    * @return the value
-    */
-    int value() const;
-
+ 
     /**
     * Determines if the piece can legally move to a given square
     *
@@ -44,13 +37,7 @@ class Knight : public Piece
     * @return if move is legal
     */
     bool canMoveTo(Square& location) const;
-    
-    /**
-     * Display the piece
-     * @param outStream the output stream
-     */
-    void display() const;
-
+   
 }; // Knight
 
 #endif

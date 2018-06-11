@@ -41,6 +41,7 @@ public:
 	void createRoom();
 	bool join(std::string userIdConn);
 	std::vector<std::string> getListRoom();
+	std::string getProfile();
 
 private:
 	void move(std::string str);

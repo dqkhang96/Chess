@@ -6,7 +6,7 @@
 #include <sstream>
 #include "king.h"
 
-King::King(bool isWhite) : RestrictedPiece(isWhite)
+King::King(bool isWhite,Board* board) : RestrictedPiece(isWhite,board)
 {
 }
 
@@ -14,10 +14,6 @@ King::~King()
 {
 }
 
-int King::value() const
-{
-    return 0;
-}
 
 bool King::canMoveTo(Square& location) const
 {
@@ -44,9 +40,4 @@ bool King::canMoveTo(Square& location) const
     }
     
     return validMove;
-}
-
-void King::display() const
-{
-    cout << _color + "K";
 }

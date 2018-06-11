@@ -20,10 +20,9 @@ class Pawn : public RestrictedPiece
     
     /**
     * Creates a Pawn
-    *
-    * @param color the color of the piece
+    * with color the color of the piece
     */
-    Pawn(bool isWhite);
+    Pawn(bool isWhite,Board* board);
     
     /**
      * Default destructor
@@ -32,40 +31,21 @@ class Pawn : public RestrictedPiece
 
     /**
     * Set which square the piece is located on
-    *
-    * @param location the square
     */
     void setLocation(Square* location);
 
-    /**
-    * Get the point value of the piece
-    *
-    * @return the value
-    */
-    int value() const;
-    
+
     /**
      * Move the piece to another square.
-     *
-     * @return successful move
      */
     int moveTo(Player& byPlayer, Square& to);
 
     /**
-    * Determines if the piece can legally move to a given square
-    * based on the geometry of the move
-    *
-    * @param square the square to move to
-    * @return if move is legal
+    this pawn can move to location
     */
     bool canMoveTo(Square& location) const;
 
-    /**
-    * Display the piece
-    * @param outStream the output stream
-    */
-    void display() const;
-   
+  
    
  private:
 

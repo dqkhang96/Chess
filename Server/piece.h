@@ -20,7 +20,7 @@ class Piece
  public:
    
 
-    Piece(bool isWhite);
+    Piece(bool isWhite,Board* board);
   
     virtual ~Piece();
 
@@ -30,14 +30,10 @@ class Piece
   
     virtual void setLocation(Square* location);
 
-    virtual int value() const = 0;
 
     bool isWhite() const;
-
-    string color() const;    
     
-    virtual void display() const = 0;   
-
+    
     virtual bool canMoveTo(Square& location) const = 0;
 
     bool isOnSquare() const;
@@ -46,12 +42,13 @@ class Piece
 
  protected:
     bool _isWhite;
-    string _color;
+	Board* _board;
     
  private:
 
     // Private attributes
     Square* _square;
+
 
 }; // Piece
 

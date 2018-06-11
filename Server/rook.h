@@ -20,10 +20,9 @@ class Rook : public RestrictedPiece
     
     /**
     * Creates a Rook
-    *
-    * @param color the color of the piece
+    * with color the color of the piece
     */
-    Rook(bool isWhite);
+    Rook(bool isWhite,Board* board);
     
     /**
      * Default destructor
@@ -31,26 +30,10 @@ class Rook : public RestrictedPiece
     ~Rook();
 
     /**
-    * Get the point value of the piece
-    *
-    * @return the value
-    */
-    int value() const;
-
-    /**
-    * Determines if the piece can legally move to a given square
-    *
-    * @param square the square to move to
-    * @return if move is legal
+    * check this rook can move to location
     */
     bool canMoveTo(Square& location) const;
     
-    /**
-     * Display the piece
-     * @param outStream the output stream
-     */
-    void display() const;
-
 }; // Rook
 
 #endif

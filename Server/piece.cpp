@@ -7,14 +7,9 @@
 #include <string>
 #include "piece.h"
 #include "player.h"
-#include "game.h"
 
-Piece::Piece(bool isWhite) : _isWhite(isWhite), _square(NULL)
+Piece::Piece(bool isWhite,Board* board) : _isWhite(isWhite), _board(board), _square(NULL)
 {
-    if(isWhite)
-        _color = "W";
-    else
-        _color = "B";
 }
 
 Piece::~Piece()
@@ -69,6 +64,8 @@ int Piece::moveTo(Player& byPlayer, Square& toSquare)
                 // set new square's occupant
                 _square->setOccupier(this);
                 
+				byPlayer.notPlay();
+				byPlayer.opponent()->play();
                 // check if the move leaves byPlayer's king in check
                 if(byPlayer.inCheck())
                 {
@@ -115,11 +112,6 @@ void Piece::setLocation(Square* location)
 bool Piece::isWhite() const
 {
     return _isWhite;
-}
-
-string Piece::color() const
-{
-    return _color;
 }
 
 bool Piece::isOnSquare() const

@@ -14,8 +14,8 @@
 #define Y_MIN '1'
 #define Y_MAX '8'
 
-Player::Player(string name,bool isWhite, King& myKing, set<Piece*>* myPieces) :
-_name(name), _isWhite(isWhite), _myPieces(myPieces), _myKing(myKing)
+Player::Player(string name,bool isWhite, King& myKing, set<Piece*>* myPieces,bool isPlay,Board* board) :
+_name(name), _isWhite(isWhite), _myPieces(myPieces), _myKing(myKing),_isPlay(isPlay),_board(board)
 {
 }
 
@@ -28,8 +28,18 @@ Player::~Player()
 void Player::setOpponent(Player* opponent) {
 	_opponent = opponent;
 }
+
+void Player::play() {
+	_isPlay = true;
+}
+
+void Player::notPlay() {
+	_isPlay = false;
+}
 int Player::makeMove(string fromSquare,string toSquare)
 {
+	if (!_isPlay)
+		return 2;//Can't play
     int fromX;
     int fromY;
     int toX;
@@ -49,7 +59,7 @@ int Player::makeMove(string fromSquare,string toSquare)
           tolower(fromSquare.at(1)) > Y_MAX ||
           tolower(toSquare.at(1)) < Y_MIN ||
           tolower(toSquare.at(1)) > Y_MAX ||
-          !(Board::getBoard()->squareAt(tolower(fromSquare.at(0)) - X_MIN, 
+          !(_board->squareAt(tolower(fromSquare.at(0)) - X_MIN, 
                                       tolower(fromSquare.at(1)) - Y_MIN)->occupied())
           )
     {
@@ -63,8 +73,8 @@ int Player::makeMove(string fromSquare,string toSquare)
     toY = tolower(toSquare.at(1)) - Y_MIN;
     
     // move the piece on fromSquare to toSquare
-    return Board::getBoard()->squareAt(fromX, fromY)->occupiedBy()->moveTo(*this, 
-                                                                  *(Board::getBoard()->squareAt(toX, toY)));
+    return _board->squareAt(fromX, fromY)->occupiedBy()->moveTo(*this, 
+                                                                  *(_board->squareAt(toX, toY)));
 }
 
 bool Player::inCheck()

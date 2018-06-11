@@ -9,11 +9,11 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Header Files\Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\images">
+    <Filter Include="Header Files\Resource Files\images">
       <UniqueIdentifier>{64a36227-98b6-4a3d-a07a-2a82fc2365b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -39,6 +39,9 @@
     <ClInclude Include="client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProfileDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChessDlg.cpp">
@@ -54,31 +57,34 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Chess.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files\Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileDialog.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Chess.rc">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files\Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Chess.rc2">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files\Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Chess.ico">
-      <Filter>Resource Files</Filter>
+      <Filter>Header Files\Resource Files</Filter>
     </Image>
     <Image Include="images\board.png">
-      <Filter>Resource Files\images</Filter>
+      <Filter>Header Files\Resource Files\images</Filter>
     </Image>
     <Image Include="images\board0.png">
-      <Filter>Resource Files\images</Filter>
+      <Filter>Header Files\Resource Files\images</Filter>
     </Image>
     <Image Include="images\figures.png">
-      <Filter>Resource Files\images</Filter>
+      <Filter>Header Files\Resource Files\images</Filter>
     </Image>
   </ItemGroup>
 </Project>

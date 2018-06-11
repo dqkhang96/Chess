@@ -17,23 +17,18 @@ class Board
 {
  public:
 
+	 /**
+	 * Creates an 8x8 Board
+	 *
+	 */
+	 Board();
     /**
      * Default destructor
      */
     ~Board();
 
     /**
-    * Get the board
-    *
-    * @return the board
-    */
-    static Board* getBoard();
-
-    /**
-    * Get a specific square on the board
-    *
-    * @params x, y the location of the square on the board
-    * @return the square
+	get square at (x,y) in board
     */
     Square* squareAt(int x, int y) const;
 
@@ -47,46 +42,21 @@ class Board
     bool isClearVertical(Square& from, Square& to) const;
 
     /**
-    * Determine if the path between two squares is a clear horizontal
-    *
-    * @param from the starting square
-    * @param to the ending square
-    * @return if the path is a clear horizontal
-    */
+		return true if board's horizontal from 'from' to 'to' is clear 
+	*/
     bool isClearHorizontal(Square& from, Square& to) const;
 
-    /**
-    * Determine if the path between two squares is a clear diagonal
-    *
-    * @param from the starting square
-    * @param to the ending square
-    * @return if the path is a clear diagonal
-    */
+	/**
+	return true if board's diagonal from 'from' to 'to' is clear
+	*/
     bool isClearDiagonal(Square& from, Square& to) const;
     
     /**
-     * Determine if the square is on an ending row of the board
-     *
-     * @param square the square to check
-     * @return if the square is on an end row
+     if square is end of row
      */
     bool isEndRow(Square& location) const;
 
-    /**
-    * Display the board
-    *
-    * @param outStream the output stream
-    */
-    void display(ostream& outStream) const;
-
-
  private:
-    
-    /**
-     * Creates an 8x8 Board
-     *
-     */
-    Board();
 
     // Private attributes
     static Board* _theBoard;

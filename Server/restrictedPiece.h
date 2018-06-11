@@ -24,7 +24,7 @@ class RestrictedPiece : public Piece
     *
     * @param color the color of the piece
     */
-    RestrictedPiece(bool isWhite);
+    RestrictedPiece(bool isWhite,Board* board);
     
     /**
      * Default destructor

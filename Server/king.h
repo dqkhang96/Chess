@@ -18,24 +18,16 @@ class King : public RestrictedPiece
  public:
 
    /**
-    * Creates a King
-    *
-    * @param color the color of the piece
+    Create King with color
     */
-    King(bool isWhite);
+    King(bool isWhite,Board* board);
     
     /**
      * Default destructor
      */
     ~King();
 
-    /**
-    * Get the point value of the piece
-    *
-    * @return the value
-    */
-    int value() const;
-
+ 
     /**
     * Determines if the piece can legally move to a given square
     *
@@ -43,12 +35,6 @@ class King : public RestrictedPiece
     * @return if move is legal
     */
     bool canMoveTo(Square& location) const;
-    
-    /**
-     * Display the piece
-     * @param outStream the output stream
-     */
-    void display() const;
 
 }; // King
 
